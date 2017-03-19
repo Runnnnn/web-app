@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>增加页面 add-page</title>
+    <link rel="stylesheet" href="">
+    <script type="text/javascript" src="../js/lib/jquery.js"></script>
+    <script type="text/javascript" src="../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/lib/jquery.fullPage.js"></script>
+    <script type="text/javascript" src="../js/component-base.js"></script>
+    <script type="text/javascript" src="../js/component-add-page.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/component-add-page.css">
+    <link rel="stylesheet" type="text/css" href="../css/component-base.css">
+</head>
+<body>
+    <script>
+        $(function(){
+            var basic = new Basic();
+            basic.addPage('myTest')
+                .addComponent('myTestComponent1', {
+                    text:'test test test myTest',
+                    width:200,
+                    height:200,
+                    css:{
+                        background: 'red',
+                        opacity:0,
+                        top:30
+                    },
+                    animateLoad:{
+                        opacity: 1
+                    },
+                    animateLeave:{
+                        opacity: 0
+                    },
+                    center: true
+                })
+                .addComponent('myTestComponent2', {
+                    text:'test test test myTest2',
+                    width:300,
+                    height:100,
+                    css:{
+                        background: '#ccc',
+                        top:200,
+                        left:50,
+                        opacity:0
+                    },
+                    animateLoad:{
+                        opacity: 1
+                    },
+                    animateLeave:{
+                        opacity: 0
+                    },
+                    relativeTo: 'myTestComponent1',
+                    center:true
+                })
+                .addComponent('myTestComponent3', {
+                    text:'test test test myTest3',
+                    width:300,
+                    height:150,
+                    css:{
+                        background: '#efe',
+                        top:300,
+                        opacity:0
+                    },
+                    animateLoad:{
+                        opacity: 1
+                    },
+                    animateLeave:{
+                        opacity: 0
+                    },
+                    center: true
+                })
+                .addPage('Page2')
+                .addComponent('Page2Component', {
+                    text:'test2 test2 test2 Page2',
+                    width:300,
+                    height:150,
+                    css:{
+                        background: '#aaa',
+                        top:100,
+                        opacity:0
+                    },
+                    animateLoad:{
+                        opacity: 1
+                    },
+                    animateLeave:{
+                        opacity: 0
+                    },
+                    center: true
+                })
+                .addComponent('Page2Component', {
+                    text:'test2 test2 test2 Page22',
+                    width:210,
+                    height:100,
+                    css:{
+                        background: '#ccc',
+                        top:300,
+                        opacity:0
+                    },
+                    animateLoad:{
+                        opacity: 1
+                    },
+                    animateLeave:{
+                        opacity: 0
+                    },
+                    center:true
+                })
+                .loadPage();
+        })
+    </script>
+</body>
+</html>

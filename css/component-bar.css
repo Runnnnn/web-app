@@ -1,0 +1,11 @@
+.component-base-bar .bar-wrap{
+    margin-top: 10px;
+    overflow: hidden;
+    height:20px;
+}
+.component-base-bar .bar-wrap *{
+    display: inline-block;
+    float: left;
+    line-height: 20px;
+    height:20px;
+}

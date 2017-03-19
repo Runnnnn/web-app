@@ -1,0 +1,22 @@
+.component-base-point{
+
+}
+.component-base-point .point{
+    border-radius: 50%;
+    position: absolute;
+}
+
+.component-base-point .name{
+    width:100px;
+    height:30px;
+    font-size: 14px;
+    position: absolute;
+    text-align: center;
+    top:50%;
+    left:50%;
+    margin-top:-15px;
+    margin-left: -50px;
+}
+.component-base-point .rate{
+    font-size: 12px;
+}

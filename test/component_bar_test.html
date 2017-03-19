@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>柱状图测试</title>
+    <link rel="stylesheet" href="">
+    <script type="text/javascript" src="../js/lib/jquery.js"></script>
+    <script type="text/javascript" src="../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/component-base.js"></script>
+    <script type="text/javascript" src="../js/component-bar.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/component-base.css">
+    <link rel="stylesheet" type="text/css" href="../css/component-bar.css">
+    <script>
+        window.onload = function() {
+            var config = {
+                type: 'bar',
+                data:[
+                    ['projectA', 1, 'green'],
+                    ['projectB', 0.3, 'red'],
+                    ['projectC', 0.2, 'yellow']
+                ],
+                text:'标题',
+                css: {
+                    top: 0,
+                    opacity: 0,
+                },
+                animateLoad: {
+                    top: 100,
+                    opacity: 1,
+                },
+                animateLeave: {
+                    top: 0,
+                    opacity: 0,
+                },
+                center: true,
+                width: 500,
+                height:500,
+                vertical: true
+            }
+            var bars = componentBar("bars", config);
+            $('.mobile').append(bars);
+            var onLeave = true;
+            $('body').on('click', function(){
+                onLeave = !onLeave;
+                bars.trigger(onLeave ? 'onLeave' : 'onLoad');
+                bars.find('.bar').trigger(onLeave ? 'onLeave' : 'onLoad');
+            })
+        }
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+        }
+        .mobile {
+            width:376px;
+            height:668px;
+            background: #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -334px 0 0 -188px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile"></div>
+</body>
+</html>

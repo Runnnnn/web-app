@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>test componentbase</title> 
+    <script type="text/javascript" src="../js/lib/jquery.js"></script>
+    <script type="text/javascript" src="../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/component-base.js"></script>
+    <script>
+        window.onload = function() {
+            var config = {
+                type: 'base',
+                text: 'hello world!',
+                background: '../image/psd2/people.png',
+                center: true,
+                css: {
+                    bottom: 0,
+                    opacity: 0,
+                },
+                animateLoad: {
+                    bottom: 80,
+                    opacity: 1,
+                },
+                animateLeave: {
+                    bottom: 0,
+                    opacity: 0,
+                },
+                width: 516,
+                height:306,
+            }
+            var base = componentBase("name", config);
+            $('.mobile').append(base);
+            var onLeave = true;
+            $('body').on('click', function(){
+                onLeave = !onLeave;
+                base.trigger(onLeave ? 'onLeave' : 'onLoad');
+            })
+        }
+    </script>
+    <link rel="stylesheet" type="text/css" href="../css/component-base.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+        }
+        .mobile {
+            width:376px;
+            height:668px;
+            background: #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -334px 0 0 -188px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile"></div>
+</body>
+</html>
