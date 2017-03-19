@@ -8,4 +8,30 @@
     float: left;
     line-height: 20px;
     height:20px;
+    font-size: 12px;
 }
+
+.component-base-bar .bar-name{
+    padding-right: 10px;
+    width: 50px;
+}
+
+.component-base-bar .bar-rate{
+    padding-left: 10px;
+    width: 30px;
+}
+
+/*
+仅需设置transition，无需设置.component-bars-onLoad .bar和.component-bars-onLeave .bar！
+*/
+.component-base-bar .bar{
+    transition: all 1s;
+}
+/*
+.component-bars-onLoad .bar{
+    width:100%;
+}
+
+.component-bars-onLeave .bar{
+    width:0%;
+}*/

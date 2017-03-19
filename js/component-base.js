@@ -17,13 +17,13 @@ var componentBase = function(name, config) {
             top:config.css.top+$('.component-base-name-'+config.relativeTo).offset().top,
             left:config.center ===undefined?config.css.left+$('.component-base-name-'+config.relativeTo).offset().left : null,
         });
-        component.addClass('component-base-onLoad');
-        component.removeClass('component-base-onLeave');
+        component.addClass('component-'+name+'-onLoad');
+        component.removeClass('component-'+name+'-onLeave');
         config.animateLoad && component.animate( config.animateLoad, 500 );
     });
     component.on('onLeave', function(){
-        component.addClass('component-base-onLeave');
-        component.removeClass('component-base-onLoad');
+        component.addClass('component-'+name+'-onLeave');
+        component.removeClass('component-'+name+'-onLoad');
         config.animateLeave && component.animate( config.animateLeave, 500 );
     });
     component.on('click', function(e) {

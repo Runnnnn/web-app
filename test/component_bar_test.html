@@ -20,7 +20,7 @@
                     ['projectB', 0.3, 'red'],
                     ['projectC', 0.2, 'yellow']
                 ],
-                text:'标题',
+                text:'测试',
                 css: {
                     top: 0,
                     opacity: 0,
@@ -36,7 +36,8 @@
                 center: true,
                 width: 500,
                 height:500,
-                vertical: true
+                vertical: true,
+                defaultAnimate: false
             }
             var bars = componentBar("bars", config);
             $('.mobile').append(bars);
@@ -66,6 +67,6 @@
     </style>
 </head>
 <body>
-    <div class="mobile"></div>
+    <div class="mobile">点击body测试柱状图</div>
 </body>
 </html>
