@@ -1,50 +1,60 @@
+.component-base-bar{
+    /*float: left;*/
+    /*clear:both;*/
+}
 .component-base-bar .bar-wrap{
     margin-top: 10px;
-    overflow: hidden;
-    height:20px;
+    /*margin-right: 20px;*/
+    /*height:100px;*/
+    /*width: 50px;*/
+    /*float: left;*/
+    /*display: inline-block;*/
 }
 .component-base-bar .bar-wrap *{
     display: inline-block;
     float: left;
     line-height: 20px;
-    height:20px;
+    /*height:20px;*/
     font-size: 12px;
 }
 
 .component-base-bar .bar-name{
-    padding-right: 10px;
-    width: 50px;
+    /*padding-right: 10px;*/
+    /*width: 50px;*/
 }
 
 .component-base-bar .bar-rate{
-    padding-left: 10px;
-    width: 30px;
-    opacity: 0;
+    /*padding-left: 10px;*/
+    /*width: 30px;*/
 }
 
 /*
 当组件config.defaultAnimate===false时，设置transition, .bar的宽度无需设置，由组件根据组件总宽度自行判断。
 */
 .component-base-bar .bar{
-    transition: all 1s 0.6s;
+    /*transition: all 1s 0.6s;*/
+    /*width:30px;*/
 }
 
 .component-bars-onLoad .bar{
-    height:20px;
+    /*height:20px;*/
+    /*width: 20px;*/
 }
 
 .component-bars-onLeave .bar{
-    height:0px;
+    /*height:0;*/
+    /*width: 0;*/
 }
 
 .component-base-bar .bar-rate{
-    transition: all 1s 1s;
+ /*   transition: all 1s 1s;
+    opacity: 0;*/
 }
 
 .component-bars-onLoad .bar-rate{
-    opacity: 1;
+    /*opacity: 1;*/
 }
 
 .component-bars-onLeave .bar-rate{
-    opacity: 0;
+    /*opacity: 0;*/
 }

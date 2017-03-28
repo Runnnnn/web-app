@@ -3,50 +3,46 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>柱状图测试</title>
+    <title>测试折线图</title>
     <link rel="stylesheet" href="">
     <script type="text/javascript" src="../js/lib/jquery.js"></script>
     <script type="text/javascript" src="../js/lib/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../js/component-base.js"></script>
-    <script type="text/javascript" src="../js/component-bar.js"></script>
+    <script type="text/javascript" src="../js/component-line.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/component-base.css">
-    <link rel="stylesheet" type="text/css" href="../css/component-bar.css">
+    <link rel="stylesheet" type="text/css" href="../css/component-line.css">
     <script>
         window.onload = function() {
             var config = {
-                type: 'bar',
+                type: 'line',
                 data:[
-                    ['projectA', 1, 'green'],
-                    ['projectB', 0.3, 'red'],
-                    ['projectC', 0.2, 'yellow'],
-                    ['projectC', 0.3, 'black'],
-                    ['projectC', 0.3, 'black']
+                    ['projectA', 0.5],
+                    ['projectB', 0.3],
+                    ['projectC', 0.2]
                 ],
+                center: true,
                 css: {
-                    top: 0,
+                    bottom: 0,
                     opacity: 0,
                 },
                 animateLoad: {
-                    top: 300,
+                    bottom: 300,
                     opacity: 1,
                 },
                 animateLeave: {
-                    top: 0,
+                    bottom: 0,
                     opacity: 0,
                 },
-                center: true,
-                width: 600,
-                height:500,
-                vertical: false,
-                defaultAnimate: true
+                width: 500,
+                height:400,
             }
-            var bars = componentBar("bars", config);
-            $('.mobile').append(bars);
+            var lines = componentLine("name", config);
+            $('.mobile').append(lines);
             var onLeave = true;
             $('body').on('click', function(){
                 onLeave = !onLeave;
-                bars.trigger(onLeave ? 'onLeave' : 'onLoad');
-                bars.find('.bar').trigger(onLeave ? 'onLeave' : 'onLoad');
+                lines.trigger(onLeave ? 'onLeave' : 'onLoad');
+                lines.find('.point').trigger(onLeave ? 'onLeave' : 'onLoad');
             })
         }
     </script>
@@ -68,6 +64,6 @@
     </style>
 </head>
 <body>
-    <div class="mobile">点击body测试柱状图</div>
+    <div class="mobile">点击body测试折线图</div>
 </body>
 </html>
