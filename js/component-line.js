@@ -13,8 +13,8 @@ var componentLine = function(name, config){
         ctx.moveTo(0,i*(_height/10));
         ctx.lineTo(_width,i*(_height/10));
     }
-    var blocks = config.data.length + 1;//列数
-    var projectNameWidth = _width/blocks;//项目名称的实际宽度
+    var blocks = config.data.length + 1; //列数
+    var projectNameWidth = _width / blocks; //项目名称的实际宽度
     for(var j=0;j<=blocks;j++){
         ctx.moveTo(j*(_width/blocks),0);
         ctx.lineTo(j*(_width/blocks),_height);
@@ -40,7 +40,7 @@ var componentLine = function(name, config){
     myCanvasLine.width = ctxLine.width = _width;
     myCanvasLine.height = ctxLine.height = _height;
     myCanvasLine.style.width = '100%';
-    ctxLine.fillStyle = '#ff7676';
+    // ctxLine.fillStyle = '#ff7676';
     // ctxLine.strokeStyle = '#ff7676';
     /**
     *canvas动画效果
@@ -52,11 +52,12 @@ var componentLine = function(name, config){
             ctxLine.moveTo(k*(_width/blocks)+10,_height*(1-config.data[k-1][1]+config.data[k-1][1]*per));//moveTo的起始位置是圆开始画的位置，所以要加10
             ctxLine.arc(k*(_width/blocks),_height*(1-config.data[k-1][1]+config.data[k-1][1]*per),10,0,2*Math.PI);
         }
+        ctxLine.fillStyle = '#ff7676';
         ctxLine.fill();
         // ctxLine.stroke();
         ctxLine.moveTo((_width/blocks),_height*(1-config.data[0][1]))
         for(var l=1;l<=config.data.length;l++){
-            ctxLine.lineTo(l*(_width/blocks),_height*(1-config.data[l-1][1]));
+            ctxLine.lineTo(l*(_width/blocks),_height*(1-config.data[l-1][1]+config.data[l-1][1]*per));
         }
         ctxLine.lineWidth = 1;
         ctxLine.strokeStyle = '#ff7676';
@@ -69,13 +70,14 @@ var componentLine = function(name, config){
             ctxLine.moveTo(m*(_width/blocks),_height*(1-config.data[m-1][1]));
             ctxLine.fillStyle = '#505050';
             ctxLine.font="14px Verdana";
-            ctxLine.fillText( (config.data[m-1][1])*100+'%', m*(_width/blocks)-12,_height*(1-config.data[m-1][1])-20);
+            ctxLine.fillText( (config.data[m-1][1])*100+'%', m*(_width/blocks)-12,_height*(1-config.data[m-1][1]+config.data[m-1][1]*per)-20);
         }
     }
     component.append(myCanvasLine);
     // animateCanvas(1)
     // setTimeout(function(){animateCanvas(1)},2000);
     // setTimeout(function(){animateCanvas(0.5)},2200);
+    // setTimeout(function(){animateCanvas(0.2)},2400);
     component.on('onLoad', function(){
         var per = 1
         for(var i=0;i<100;i++){
@@ -91,7 +93,7 @@ var componentLine = function(name, config){
             setTimeout(function(){
                 per = per + 0.01
                 animateCanvas(per)
-            },i*10);
+            },i*1);
         }
     })
     return component;

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>测试雷达图</title>
+    <link rel="stylesheet" href="">
+    <script type="text/javascript" src="../js/lib/jquery.js"></script>
+    <script type="text/javascript" src="../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/component-base.js"></script>
+    <script type="text/javascript" src="../js/component-radar.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/component-base.css">
+    <link rel="stylesheet" type="text/css" href="../css/component-radar.css">
+    <script>
+        window.onload = function() {
+            var config = {
+                type: 'radar',
+                data:[
+                    ['projectA', 0.7],
+                    ['projectB', 0.8],
+                    ['projectC', 0.9],
+                    ['projectD', 0.9],
+                    ['projectE', 0.9]
+                ],
+                center: true,
+                css: {
+                    bottom: 300,
+                    opacity: 1,
+                },
+                // animateLoad: {
+                //     bottom: 300,
+                //     opacity: 1,
+                // },
+                // animateLeave: {
+                //     bottom: 0,
+                //     opacity: 0,
+                // },
+                width: 400,
+                height:400,
+            }
+            var radar = componentRadar("name", config);
+            $('.mobile').append(radar);
+            var onLeave = true;
+            $('body').on('click', function(){
+                onLeave = !onLeave;
+                radar.trigger(onLeave ? 'onLeave' : 'onLoad');
+                //radar.find('.point').trigger(onLeave ? 'onLeave' : 'onLoad');
+            })
+        }
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+        }
+        .mobile {
+            width:376px;
+            height:668px;
+            background: #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -334px 0 0 -188px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile">点击body测试折线图</div>
+</body>
+</html>
